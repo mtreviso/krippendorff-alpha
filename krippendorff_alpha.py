@@ -161,12 +161,12 @@ if __name__ == '__main__':
     data = [
         ['[1, 2, 3]', '[1]', '[2, 3]'],
         ['[1, 2]',    '[1]', '[3, 4]'],
-        ['[]',        '[1]', '[3, 4]'],
+        ['*',         '[1]', '[3, 4]'],
     ]
 
     # Helper function to convert strings to sets
     str_to_set = lambda s: set(eval(s))
 
-    print("dice metric: %.3f" % krippendorff_alpha(data, dice_metric, missing_items=['[]'], convert_items=str_to_set))
-    print("jaccard metric: %.3f" % krippendorff_alpha(data, iou_metric, missing_items=['[]'], convert_items=str_to_set))
-    print("masi metric: %.3f" % krippendorff_alpha(data, masi_metric, missing_items=['[]'], convert_items=str_to_set))
+    print("dice metric: %.3f" % krippendorff_alpha(data, dice_metric, missing_items='*', convert_items=str_to_set))
+    print("jaccard metric: %.3f" % krippendorff_alpha(data, iou_metric, missing_items='*', convert_items=str_to_set))
+    print("masi metric: %.3f" % krippendorff_alpha(data, masi_metric, missing_items='*', convert_items=str_to_set))
